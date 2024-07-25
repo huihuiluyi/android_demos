@@ -1,0 +1,60 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdk rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.nobody.demos"
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation support.appcompat
+    implementation support.fragment
+    implementation support.'fragment-ktx'
+    implementation support.material
+    implementation support.'activity-compose'
+    implementation support.core
+    implementation support.'core-ktx'
+    implementation support.collection
+    implementation support.'collection-ktx'
+    implementation support.multidex
+
+//    implementation arch.lifecycle.'viewmodel-ktx'
+//    implementation arch.lifecycle.'viewmodel-compose'
+//    implementation arch.lifecycle.'livedata-ktx'
+//    implementation arch.lifecycle.'viewmodel-savedstate'
+//    kapt           arch.lifecycle.compiler
+//    implementation arch.lifecycle.'common-java8'
+//    implementation arch.lifecycle.process
+//    implementation arch.lifecycle.'reactivestreams-ktx'
+
+    implementation kotlin_libs.stdlib
+    implementation coroutine.core
+    implementation coroutine.android
+}
