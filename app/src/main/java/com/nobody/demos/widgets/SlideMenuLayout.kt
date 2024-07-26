@@ -71,7 +71,7 @@ class SlideMenuLayout(private var c:Context, attr:AttributeSet)
         val wMode = MeasureSpec.getMode(widthMeasureSpec)
         val wSize = MeasureSpec.getSize(widthMeasureSpec)
         val hMode = MeasureSpec.getMode(heightMeasureSpec)
-        val hSize = MeasureSpec.getMode(heightMeasureSpec)
+        val hSize = MeasureSpec.getSize(heightMeasureSpec)
         val w = if(wMode == MeasureSpec.EXACTLY) wSize else measuredWidth
         val h = if(hMode == MeasureSpec.EXACTLY) hSize else measuredHeight
         setMeasuredDimension(w,h)
